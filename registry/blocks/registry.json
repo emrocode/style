@@ -6,7 +6,7 @@
       "type": "registry:block",
       "title": "Header",
       "description": "A header component",
-      "registryDependencies": ["hero"],
+      "registryDependencies": ["@emrocode/hero"],
       "files": [
         {
           "path": "app-header/app-header.tsx",

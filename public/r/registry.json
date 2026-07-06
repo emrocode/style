@@ -34,7 +34,7 @@
       "title": "Header",
       "description": "A header component",
       "registryDependencies": [
-        "hero"
+        "@emrocode/hero"
       ],
       "files": [
         {
