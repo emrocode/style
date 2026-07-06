@@ -1,11 +1,10 @@
 import {
   Hero,
-  HeroContent,
-  HeroTitle,
-  HeroDescription,
-  Highlight,
   HeroAlert,
-  HeroActions,
+  HeroContent,
+  HeroDescription,
+  HeroTitle,
+  Highlight,
 } from "@/registry/ui/hero";
 
 export function AppHeader() {

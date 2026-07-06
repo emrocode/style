@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -6,7 +6,7 @@ function Hero({ className, ...props }: React.ComponentProps<"section">) {
   return (
     <section
       data-slot="hero"
-      className={cn("border-b border-border", className)}
+      className={cn("border-border border-b", className)}
       {...props}
     />
   );
@@ -66,7 +66,7 @@ function HeroTitle({ className, ...props }: React.ComponentProps<"h1">) {
     <h1
       data-slot="hero-title"
       className={cn(
-        "mx-auto max-w-3xl pb-6 text-4xl font-bold tracking-tight md:text-5xl",
+        "mx-auto max-w-3xl pb-6 font-bold text-4xl tracking-tight md:text-5xl",
         className,
       )}
       {...props}
@@ -79,7 +79,7 @@ function HeroDescription({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="hero-description"
       className={cn(
-        "text-muted-foreground mx-auto mt-2 max-w-2xl text-base leading-relaxed md:text-lg",
+        "mx-auto mt-2 max-w-2xl text-base text-muted-foreground leading-relaxed md:text-lg",
         className,
       )}
       {...props}
@@ -112,10 +112,10 @@ function Highlight({ className, ...props }: React.ComponentProps<"span">) {
 
 export {
   Hero,
-  HeroContent,
-  HeroAlert,
-  HeroTitle,
-  HeroDescription,
   HeroActions,
+  HeroAlert,
+  HeroContent,
+  HeroDescription,
+  HeroTitle,
   Highlight,
 };
