@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-header",
+  "title": "Header",
+  "description": "A header component",
+  "registryDependencies": [
+    "hero"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/app-header/app-header.tsx",
+      "content": "import {\n  Hero,\n  HeroContent,\n  HeroTitle,\n  HeroDescription,\n  Highlight,\n  HeroAlert,\n  HeroActions,\n} from \"@/registry/ui/hero\";\n\nexport function AppHeader() {\n  return (\n    <Hero>\n      <HeroContent>\n        <HeroAlert>v0.1.0 is out &mdash; explore the release notes</HeroAlert>\n        <HeroTitle>\n          <Highlight>St</Highlight>yle\n        </HeroTitle>\n        <HeroDescription>\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic neque est\n          sequi? Ea, ex veritatis?\n        </HeroDescription>\n      </HeroContent>\n    </Hero>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:block"
+}

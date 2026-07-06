@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "hero",
+      "type": "registry:ui",
+      "title": "Hero",
+      "description": "A simple hero banner component",
+      "files": [
+        {
+          "path": "hero.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

@@ -1,80 +1,78 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "emrocode",
+  "homepage": "https://style.emroco.de",
   "items": [
     {
-      "name": "hello-world",
-      "type": "registry:component",
-      "title": "Hello World",
-      "description": "A simple hello world component",
-      "registryDependencies": ["button"],
-      "files": [
-        {
-          "path": "registry/new-york/blocks/hello-world/hello-world.tsx",
-          "type": "registry:component"
-        }
-      ]
+      "name": "font-archivo",
+      "type": "registry:font",
+      "font": {
+        "family": "Archivo, sans-serif",
+        "provider": "google",
+        "import": "Archivo",
+        "variable": "--font-sans",
+        "subsets": [
+          "latin"
+        ],
+        "dependency": "@fontsource-variable/archivo"
+      }
     },
     {
-      "name": "example-form",
-      "type": "registry:component",
-      "title": "Example Form",
-      "description": "A contact form with Zod validation.",
-      "dependencies": ["zod"],
-      "registryDependencies": ["button", "input", "label", "textarea", "card"],
+      "name": "hero",
+      "title": "Hero",
+      "description": "A simple hero banner component",
       "files": [
         {
-          "path": "registry/new-york/blocks/example-form/example-form.tsx",
-          "type": "registry:component"
+          "path": "registry/ui/hero.tsx",
+          "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
-      "name": "complex-component",
-      "type": "registry:component",
-      "title": "Complex Component",
-      "description": "A complex component showing hooks, libs and components.",
-      "registryDependencies": ["card"],
+      "name": "app-header",
+      "title": "Header",
+      "description": "A header component",
+      "registryDependencies": [
+        "hero"
+      ],
       "files": [
         {
-          "path": "registry/new-york/blocks/complex-component/page.tsx",
-          "type": "registry:page",
-          "target": "app/pokemon/page.tsx"
-        },
-        {
-          "path": "registry/new-york/blocks/complex-component/components/pokemon-card.tsx",
+          "path": "registry/blocks/app-header/app-header.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/new-york/blocks/complex-component/components/pokemon-image.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/new-york/blocks/complex-component/lib/pokemon.ts",
-          "type": "registry:lib"
-        },
-        {
-          "path": "registry/new-york/blocks/complex-component/hooks/use-pokemon.ts",
-          "type": "registry:hook"
         }
-      ]
+      ],
+      "type": "registry:block"
     },
     {
-      "name": "example-with-css",
-      "type": "registry:component",
-      "title": "Example with CSS",
-      "description": "A login form with a CSS file.",
+      "name": "github-corner",
+      "title": "GitHub Corner",
+      "description": "A simple GitHub corner component",
       "files": [
         {
-          "path": "registry/new-york/blocks/example-with-css/example-card.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/new-york/blocks/example-with-css/example-card.css",
+          "path": "registry/blocks/github-corner/github-corner.tsx",
           "type": "registry:component"
         }
-      ]
+      ],
+      "cssVars": {
+        "theme": {
+          "--animate-wave": "wave 0.777s ease-in-out"
+        }
+      },
+      "css": {
+        "@keyframes wave": {
+          "0%, 100%": {
+            "transform": "rotate(0)"
+          },
+          "20%, 60%": {
+            "transform": "rotate(-25deg)"
+          },
+          "40%, 80%": {
+            "transform": "rotate(10deg)"
+          }
+        }
+      },
+      "type": "registry:component"
     }
   ]
 }

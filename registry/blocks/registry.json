@@ -1,0 +1,48 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "app-header",
+      "type": "registry:block",
+      "title": "Header",
+      "description": "A header component",
+      "registryDependencies": ["hero"],
+      "files": [
+        {
+          "path": "app-header/app-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "github-corner",
+      "type": "registry:component",
+      "title": "GitHub Corner",
+      "description": "A simple GitHub corner component",
+      "files": [
+        {
+          "path": "github-corner/github-corner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "--animate-wave": "wave 0.777s ease-in-out"
+        }
+      },
+      "css": {
+        "@keyframes wave": {
+          "0%, 100%": {
+            "transform": "rotate(0)"
+          },
+          "20%, 60%": {
+            "transform": "rotate(-25deg)"
+          },
+          "40%, 80%": {
+            "transform": "rotate(10deg)"
+          }
+        }
+      }
+    }
+  ]
+}
