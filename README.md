@@ -1,4 +1,4 @@
-## Style
+# Style
 
 🎨 Personal design system, layout blocks, and theme primitives for shadcn/ui.
 
@@ -18,6 +18,12 @@ List all items in registry
 
 ```bash
 pnpm dlx shadcn@latest list @emrocode
+```
+
+View a component
+
+```bash
+pnpm dlx shadcn@latest view @emrocode/app-header
 ```
 
 Add a component
