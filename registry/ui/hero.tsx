@@ -30,7 +30,7 @@ type HeroAlertProps =
   | ({ href?: undefined } & React.ComponentProps<"span">);
 
 const heroAlertClassName =
-  "mb-8 max-w-2xl w-fit border-y border-y-background/10 inline-flex shadow-xs shadow-inner items-center rounded-full ring ring-border bg-muted px-4 py-2 text-sm font-medium text-muted-foreground";
+  "mb-8 max-w-2xl w-fit border-y border-y-background/10 inline-flex shadow-xs shadow-inner items-center rounded-full ring ring-border bg-muted px-3 py-1.5 text-sm font-medium text-muted-foreground";
 
 function HeroAlert(props: HeroAlertProps) {
   if ("href" in props && props.href) {
@@ -100,11 +100,20 @@ function HeroActions({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function Highlight({ className, ...props }: React.ComponentProps<"span">) {
+function Highlight({
+  className,
+  variant = "default",
+  ...props
+}: React.ComponentProps<"span"> & { variant?: "default" | "ghost" }) {
   return (
     <span
       data-slot="highlight"
-      className={cn("text-muted-foreground", className)}
+      className={cn(
+        variant === "default" && "text-muted-foreground",
+        variant === "ghost" &&
+          "[@supports(-webkit-text-stroke:1px)]:[-webkit-text-fill-color:var(--color-background)] [@supports(-webkit-text-stroke:1px)]:[-webkit-text-stroke:1px_currentColor]",
+        className,
+      )}
       {...props}
     />
   );
