@@ -9,7 +9,8 @@
       "files": [
         {
           "path": "hero.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "@ui/hero.tsx"
         }
       ]
     }
