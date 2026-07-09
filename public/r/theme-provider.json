@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-provider",
+  "title": "Theme Provider",
+  "description": "A theme provider using @emrocode/umbra",
+  "dependencies": [
+    "@emrocode/umbra"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/theme-provider/theme-provider.tsx",
+      "content": "\"use client\";\n\nimport Umbra, { type Options } from \"@emrocode/umbra\";\nimport { createContext, type ReactNode, useContext, useState } from \"react\";\nimport { KeyboardShortcut } from \"./plugins\";\n\nconst options: Partial<Options> = {\n  autoMatchTheme: true,\n  useColorScheme: [\"#ffffff\", \"#000000\"],\n  useStorage: \"local\",\n  usePlugins: [KeyboardShortcut],\n};\n\nconst umb = new Umbra(options);\n\nconst ThemeContext = createContext<{\n  theme: string;\n  toggleTheme: () => void;\n} | null>(null);\n\nexport const ThemeProvider = ({ children }: { children: ReactNode }) => {\n  const [theme, setTheme] = useState<string>(umb.getCurrentTheme());\n\n  const toggleTheme = () => {\n    umb.toggleTheme();\n    setTheme(umb.getCurrentTheme());\n  };\n\n  return (\n    <ThemeContext.Provider value={{ theme, toggleTheme }}>\n      {children}\n    </ThemeContext.Provider>\n  );\n};\n\nexport const useTheme = () => {\n  const context = useContext(ThemeContext);\n  if (!context) {\n    throw new Error(\"useTheme must be used within a ThemeProvider\");\n  }\n  return context;\n};\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/blocks/theme-provider/plugins/index.ts",
+      "content": "export * from \"./kbd.plugin\";\n",
+      "type": "registry:component",
+      "target": "@components/plugins/index.ts"
+    },
+    {
+      "path": "registry/blocks/theme-provider/plugins/kbd.plugin.ts",
+      "content": "import type { Host, Plugin } from \"@emrocode/umbra\";\n\ninterface KeyboardShortcutOptions {\n  key?: string;\n  ctrl?: boolean;\n  shift?: boolean;\n  target?: \"body\" | \"input\" | \"all\";\n  cooldown?: number;\n}\n\nexport class KeyboardShortcut implements Plugin {\n  public static readonly pluginId = \"u-keyboard-shortcut\";\n  private _host: Host;\n  private options: Required<KeyboardShortcutOptions>;\n  private _lastTriggered: number = 0;\n\n  constructor(host: Host, options?: KeyboardShortcutOptions) {\n    this._host = host;\n    this.options = {\n      key: options?.key ?? \"d\",\n      ctrl: options?.ctrl ?? false,\n      shift: options?.shift ?? false,\n      target: options?.target ?? \"body\",\n      cooldown: options?.cooldown ?? 300,\n    };\n  }\n\n  private handleKeyDown = (e: KeyboardEvent) => {\n    if (this.options.target === \"body\" && this.isTyping(e)) return;\n    if (this.options.target === \"input\" && !this.isTyping(e)) return;\n\n    if (this.matches(e)) {\n      e.preventDefault();\n\n      const now = Date.now();\n      if (now - this._lastTriggered < this.options.cooldown) return;\n\n      this._lastTriggered = now;\n      this._host.toggleTheme();\n    }\n  };\n\n  render(): void {\n    document.addEventListener(\"keydown\", this.handleKeyDown);\n  }\n\n  onDestroy(): void {\n    document.removeEventListener(\"keydown\", this.handleKeyDown);\n  }\n\n  private matches(e: KeyboardEvent): boolean {\n    return (\n      e.key.toLowerCase() === this.options.key.toLowerCase() &&\n      (!this.options.ctrl || e.ctrlKey || e.metaKey) &&\n      (!this.options.shift || e.shiftKey) &&\n      (this.options.ctrl || (!e.ctrlKey && !e.metaKey && !e.altKey))\n    );\n  }\n\n  private isTyping(e: KeyboardEvent): boolean {\n    const target = e.target as HTMLElement;\n    const tagName = target.tagName.toLowerCase();\n    const isEditable =\n      target.isContentEditable || tagName === \"input\" || tagName === \"textarea\";\n    return isEditable;\n  }\n}\n",
+      "type": "registry:component",
+      "target": "@components/plugins/kbd.plugin.ts"
+    }
+  ],
+  "css": {
+    "@custom-variant dark": {
+      "&:where([data-theme=dark], [data-theme=dark] *)": {
+        "@slot": {}
+      }
+    }
+  },
+  "type": "registry:component"
+}

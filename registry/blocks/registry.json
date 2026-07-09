@@ -43,6 +43,53 @@
           }
         }
       }
+    },
+    {
+      "name": "layout",
+      "type": "registry:block",
+      "title": "Layout",
+      "description": "Core layout configuration with pre-configured providers",
+      "registryDependencies": [
+        "@emrocode/font-archivo",
+        "@emrocode/theme-provider"
+      ],
+      "files": [
+        {
+          "path": "layout/layout.tsx",
+          "type": "registry:component",
+          "target": "app/layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme-provider",
+      "type": "registry:component",
+      "title": "Theme Provider",
+      "description": "A theme provider using @emrocode/umbra",
+      "dependencies": ["@emrocode/umbra"],
+      "files": [
+        {
+          "path": "theme-provider/theme-provider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "theme-provider/plugins/index.ts",
+          "type": "registry:component",
+          "target": "@components/plugins/index.ts"
+        },
+        {
+          "path": "theme-provider/plugins/kbd.plugin.ts",
+          "type": "registry:component",
+          "target": "@components/plugins/kbd.plugin.ts"
+        }
+      ],
+      "css": {
+        "@custom-variant dark": {
+          "&:where([data-theme=dark], [data-theme=dark] *)": {
+            "@slot": {}
+          }
+        }
+      }
     }
   ]
 }

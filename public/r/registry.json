@@ -24,7 +24,8 @@
       "files": [
         {
           "path": "registry/ui/hero.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "@ui/hero.tsx"
         }
       ],
       "type": "registry:ui"
@@ -69,6 +70,55 @@
           },
           "40%, 80%": {
             "transform": "rotate(10deg)"
+          }
+        }
+      },
+      "type": "registry:component"
+    },
+    {
+      "name": "layout",
+      "title": "Layout",
+      "description": "Core layout configuration with pre-configured providers",
+      "registryDependencies": [
+        "@emrocode/font-archivo",
+        "@emrocode/theme-provider"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/layout/layout.tsx",
+          "type": "registry:component",
+          "target": "app/layout.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "theme-provider",
+      "title": "Theme Provider",
+      "description": "A theme provider using @emrocode/umbra",
+      "dependencies": [
+        "@emrocode/umbra"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/theme-provider/theme-provider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/blocks/theme-provider/plugins/index.ts",
+          "type": "registry:component",
+          "target": "@components/plugins/index.ts"
+        },
+        {
+          "path": "registry/blocks/theme-provider/plugins/kbd.plugin.ts",
+          "type": "registry:component",
+          "target": "@components/plugins/kbd.plugin.ts"
+        }
+      ],
+      "css": {
+        "@custom-variant dark": {
+          "&:where([data-theme=dark], [data-theme=dark] *)": {
+            "@slot": {}
           }
         }
       },
