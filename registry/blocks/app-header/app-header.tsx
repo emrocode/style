@@ -13,7 +13,7 @@ export function AppHeader() {
       <HeroContent>
         <HeroAlert>v0.1.0 is out &mdash; explore the release notes</HeroAlert>
         <HeroTitle>
-          <Highlight>St</Highlight>yle
+          <Highlight>Hello</Highlight> World
         </HeroTitle>
         <HeroDescription>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic neque est
