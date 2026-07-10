@@ -1,5 +1,4 @@
 import type * as React from "react";
-
 import { cn } from "@/lib/utils";
 
 function Hero({ className, ...props }: React.ComponentProps<"section">) {
@@ -109,7 +108,7 @@ function Highlight({
     <span
       data-slot="highlight"
       className={cn(
-        variant === "default" && "text-muted-foreground",
+        variant === "default" && "text-primary",
         variant === "ghost" &&
           "[@supports(-webkit-text-stroke:1px)]:[-webkit-text-fill-color:var(--color-background)] [@supports(-webkit-text-stroke:1px)]:[-webkit-text-stroke:1px_currentColor]",
         className,
