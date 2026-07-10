@@ -14,24 +14,24 @@ export default function Home() {
         </p>
       </header>
       <main className="flex flex-1 flex-col gap-8">
-        <div className="relative flex min-h-48 flex-col gap-4 rounded-lg border p-4">
+        <div className="relative flex flex-col gap-4 rounded-lg border p-4">
           <div className="flex items-center justify-between">
             <h2 className="text-muted-foreground text-sm sm:pl-3">
               A simple GitHub corner component
             </h2>
           </div>
-          <div className="relative">
+          <div className="relative min-h-48">
             <GitHubCorner href="https://github.com/emrocode/style" />
           </div>
         </div>
 
-        <div className="relative flex min-h-48 flex-col gap-4 rounded-lg border p-4">
+        <div className="relative flex flex-col gap-4 rounded-lg border p-4">
           <div className="flex items-center justify-between">
             <h2 className="text-muted-foreground text-sm sm:pl-3">
               A header component
             </h2>
           </div>
-          <div className="relative">
+          <div className="relative min-h-48">
             <AppHeader />
           </div>
         </div>
