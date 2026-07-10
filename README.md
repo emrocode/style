@@ -1,6 +1,6 @@
 # Style
 
-🎨 Personal design system, layout blocks, and theme primitives for shadcn/ui.
+Personal design system, layout blocks, and theme primitives for shadcn/ui.
 
 ### Add registry
 
