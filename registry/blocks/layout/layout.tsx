@@ -2,8 +2,6 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
-import Head from "next/head";
-import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
@@ -22,14 +20,13 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased", archivo.variable)}
     >
-      <Head>
-        <Script
-          id="umbra"
+      <head>
+        <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
           }}
         />
-      </Head>
+      </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
